@@ -1,0 +1,243 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  background-color: #F5F5F0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+[data-testid="test-todo-card"] {
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  padding: 32px 28px;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+[data-testid="test-todo-card"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.card-header input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border: 2px solid #1A1A2E;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 3px;
+  position: relative;
+  background-color: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.card-header input[type="checkbox"]:checked {
+  background-color: #1A1A2E;
+  border-color: #1A1A2E;
+}
+
+.card-header input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 7px;
+  height: 11px;
+  border: 2.5px solid #FFFFFF;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.card-header input[type="checkbox"]:focus-visible {
+  outline: 3px solid #4F46E5;
+  outline-offset: 3px;
+}
+
+[data-testid="test-todo-title"] {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1A1A2E;
+  line-height: 1.4;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+[data-testid="test-todo-card"].is-complete [data-testid="test-todo-title"] {
+  text-decoration: line-through;
+  color: #6B7280;
+}
+
+[data-testid="test-todo-description"] {
+  font-size: 0.9rem;
+  color: #6B7280;
+  line-height: 1.7;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+[data-testid="test-todo-priority"] {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  letter-spacing: 0.03em;
+}
+
+[data-testid="test-todo-status"] {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background-color: #EEF2FF;
+  color: #4F46E5;
+  letter-spacing: 0.03em;
+}
+
+[data-testid="test-todo-status"].done {
+  background-color: #ECFDF5;
+  color: #04865D;
+}
+
+.card-dates {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+[data-testid="test-todo-due-date"],
+[data-testid="test-todo-time-remaining"] {
+  font-size: 0.82rem;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.time-remaining-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  color: #6B7280;
+}
+
+[data-testid="test-todo-time-remaining"].overdue {
+  color: #DC2626;
+  font-weight: 600;
+}
+
+[data-testid="test-todo-tags"] {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+[data-testid="test-todo-tags"] li {
+  background-color: #1A1A2E;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.card-actions button:hover {
+  opacity: 0.88;
+}
+
+.card-actions button:active {
+  transform: scale(0.97);
+}
+
+.card-actions button:focus-visible {
+  outline: 3px solid #4F46E5;
+  outline-offset: 2px;
+}
+
+[data-testid="test-todo-edit-button"] {
+  background-color: #4F46E5;
+  color: #FFFFFF;
+}
+
+[data-testid="test-todo-delete-button"] {
+  background-color: #DC2626;
+  color: #FFFFFF;
+}
+
+@media (max-width: 480px) {
+  body {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  [data-testid="test-todo-card"] {
+    padding: 24px 20px;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+}
