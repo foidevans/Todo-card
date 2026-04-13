@@ -51,7 +51,7 @@ body {
   color: #6B7280;
 }
 
-[data-testid="test-todo-card"] {
+.todo-card {
   background-color: #FFFFFF;
   border-radius: 24px;
   padding: 32px 28px;
@@ -64,7 +64,7 @@ body {
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-[data-testid="test-todo-card"]:hover {
+.todo-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
@@ -113,7 +113,7 @@ body {
   outline-offset: 3px;
 }
 
-[data-testid="test-todo-title"] {
+.todo-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: #1A1A2E;
@@ -121,12 +121,12 @@ body {
   transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
-[data-testid="test-todo-card"].is-complete [data-testid="test-todo-title"] {
+.todo-card.is-complete .todo-title {
   text-decoration: line-through;
   color: #6B7280;
 }
 
-[data-testid="test-todo-description"] {
+.todo-description {
   font-size: 0.9rem;
   color: #6B7280;
   line-height: 1.7;
@@ -139,7 +139,7 @@ body {
   flex-wrap: wrap;
 }
 
-[data-testid="test-todo-priority"] {
+.todo-priority {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 7px 12px;
@@ -149,7 +149,7 @@ body {
   letter-spacing: 0.03em;
 }
 
-[data-testid="test-todo-status"] {
+.todo-status {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 7px 12px;
@@ -159,7 +159,7 @@ body {
   letter-spacing: 0.03em;
 }
 
-[data-testid="test-todo-status"].done {
+.todo-status.done {
   background-color: #ECFDF5;
   color: #04865D;
 }
@@ -171,8 +171,8 @@ body {
   flex-wrap: wrap;
 }
 
-[data-testid="test-todo-due-date"],
-[data-testid="test-todo-time-remaining"] {
+.todo-due-date,
+.todo-time-remaining {
   font-size: 0.82rem;
   color: #6B7280;
   display: flex;
@@ -188,19 +188,19 @@ body {
   color: #6B7280;
 }
 
-[data-testid="test-todo-time-remaining"].overdue {
+.todo-time-remaining.overdue {
   color: #DC2626;
   font-weight: 600;
 }
 
-[data-testid="test-todo-tags"] {
+.todo-tags {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-[data-testid="test-todo-tags"] li {
+.todo-tags li {
   background-color: #1A1A2E;
   color: #FFFFFF;
   font-size: 0.75rem;
@@ -238,12 +238,12 @@ body {
   outline-offset: 2px;
 }
 
-[data-testid="test-todo-edit-button"] {
+.todo-edit-btn {
   background-color: #4F46E5;
   color: #FFFFFF;
 }
 
-[data-testid="test-todo-delete-button"] {
+.todo-delete-btn {
   background-color: #DC2626;
   color: #FFFFFF;
 }
@@ -254,7 +254,7 @@ body {
     padding: 16px;
   }
 
-  [data-testid="test-todo-card"] {
+  .todo-card {
     padding: 24px 20px;
     border-radius: 20px;
     max-width: 100%;

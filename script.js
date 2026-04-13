@@ -1,9 +1,10 @@
 const checkbox = document.getElementById('todo-complete');
-const todoCard = document.querySelector('[data-testid="test-todo-card"]');
-const todoStatus = document.querySelector('[data-testid="test-todo-status"]');
-const timeRemaining = document.querySelector('[data-testid="test-todo-time-remaining"]');
-const editBtn = document.querySelector('[data-testid="test-todo-edit-button"]');
-const deleteBtn = document.querySelector('[data-testid="test-todo-delete-button"]');
+const todoCard = document.querySelector('.todo-card');
+const todoStatus = document.querySelector('.todo-status');
+const todoTitle = document.querySelector('.todo-title');
+const timeRemaining = document.querySelector('.todo-time-remaining');
+const editBtn = document.querySelector('.todo-edit-btn');
+const deleteBtn = document.querySelector('.todo-delete-btn');
 
 const DUE_DATE = new Date('2026-04-16T18:00:00Z');
 
