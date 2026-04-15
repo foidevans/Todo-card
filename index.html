@@ -9,50 +9,124 @@
   <body>
     <main class="page">
       <div class="page-header">
-        <h1 class="page-title">Walter White's Todo Card </h1>
-        <p class="page-description">
-          Stay on top of the operation. One task at a time.
-        </p>
+        <div class="page-header-text">
+          <h1 class="page-title">Peter Griffin's Todo Card 🍺</h1>
+          <p class="page-description">Freaking sweet. One task at a time.</p>
+        </div>
+        <img src="peter.png" alt="Peter Griffin" class="peter-img" />
       </div>
+
       <article class="todo-card" data-testid="test-todo-card">
-        <div class="card-header">
-          <input
-            type="checkbox"
-            id="todo-complete"
-            data-testid="test-todo-complete-toggle"
-            aria-label="Mark task as complete"
-          />
-          <label for="todo-complete" class="sr-only"
-            >Mark task as complete</label
-          >
-          <h2 class="todo-title" data-testid="test-todo-title">
-            Cook new batch of meth with Jesse
-          </h2>
-        </div>
+        <div
+          class="todo-priority-indicator"
+          data-testid="test-todo-priority-indicator"
+        ></div>
 
-        <p class="todo-description"  data-testid="test-todo-description">
-          Secure the lab, gather the methylamine, and ensure the product meets
-          the usual 99.1% purity standard. Do not let Tuco find out
-        </p>
+        <div class="card-view">
+          <div class="card-header">
+            <input
+              type="checkbox"
+              id="todo-complete"
+              data-testid="test-todo-complete-toggle"
+              aria-label="Mark task as complete"
+            />
+            <label for="todo-complete" class="sr-only"
+              >Mark task as complete</label
+            >
+            <h2 class="todo-title" data-testid="test-todo-title">
+              Prank Call Quagmire
+            </h2>
+          </div>
 
-        <div class="card-meta">
-          <span class="todo-priority" data-testid="test-todo-priority" aria-label="Priority: High"
-            >High</span
-          >
-          <span class="todo-status" data-testid="test-todo-status" aria-label="Status: In Progress"
-            >In Progress</span
-          >
-        </div>
+          <div class="status-control-wrapper">
+            <label for="status-control" class="sr-only">Task status</label>
+            <select
+              id="status-control"
+              class="todo-status-control"
+              data-testid="test-todo-status-control"
+              aria-label="Task status"
+            >
+              <option value="Pending">Pending</option>
+              <option value="In Progress" selected>In Progress</option>
+              <option value="Done">Done</option>
+            </select>
+          </div>
 
-        <div class="card-dates">
-          <time class="todo-due-date"
-            data-testid="test-todo-due-date"
-            datetime="2026-04-16T18:00:00Z"
+          <div class="card-meta">
+            <span
+              class="todo-priority"
+              data-testid="test-todo-priority"
+              aria-label="Priority: High"
+              >High</span
+            >
+            <span
+              class="todo-status"
+              data-testid="test-todo-status"
+              aria-label="Status: In Progress"
+              >In Progress</span
+            >
+          </div>
+
+          <div class="card-dates">
+            <time
+              class="todo-due-date"
+              data-testid="test-todo-due-date"
+              datetime="2026-04-16T18:00:00Z"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Due Apr 16, 2026
+            </time>
+
+            <div class="time-remaining-wrapper">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span
+                class="todo-time-remaining"
+                data-testid="test-todo-time-remaining"
+                aria-live="polite"
+              ></span>
+            </div>
+          </div>
+
+          <div
+            class="todo-overdue-indicator"
+            data-testid="test-todo-overdue-indicator"
+            aria-live="polite"
+            hidden
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -61,53 +135,127 @@
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <path d="M12 6v6l4 2" />
+              <path d="M20 12v5" />
+              <path d="M20 21h.01" />
+              <path d="M21.25 8.2A10 10 0 1 0 16 21.16" />
             </svg>
-            Due Apr 16, 2026
-          </time>
+            This task is overdue
+          </div>
 
-          <div class="time-remaining-wrapper">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
+          <div class="description-wrapper">
+            <div
+              class="todo-collapsible-section"
+              data-testid="test-todo-collapsible-section"
+              id="todo-collapsible"
             >
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <span class="todo-time-remaining" data-testid="test-todo-time-remaining" aria-live="polite"
-              >Calculating...</span
+              <p class="todo-description" data-testid="test-todo-description">
+                Secure the lab, gather the methylamine, and ensure the product
+                meets the usual 99.1% purity standard. Do not let Tuco find out.
+                Remember, we are not in the meth business, we are in the empire
+                business. Stay focused and do not make any mistakes this time
+                around.
+              </p>
+            </div>
+
+            <button
+              class="todo-expand-toggle"
+              data-testid="test-todo-expand-toggle"
+              aria-expanded="false"
+              aria-controls="todo-collapsible"
             >
+              Show more
+            </button>
+          </div>
+
+          <ul class="todo-tags" role="list" data-testid="test-todo-tags">
+            <li class="todo-tag" data-testid="test-todo-tag-work">Work</li>
+            <li class="todo-tag" data-testid="test-todo-tag-urgent">Urgent</li>
+            <li class="todo-tag" data-testid="test-todo-tag-quahog">Quahog</li>
+          </ul>
+
+          <div class="card-actions">
+            <button
+              class="todo-edit-btn"
+              data-testid="test-todo-edit-button"
+              aria-label="Edit task"
+            >
+              Edit
+            </button>
+            <button
+              class="todo-delete-btn"
+              data-testid="test-todo-delete-button"
+              aria-label="Delete task"
+            >
+              Delete
+            </button>
           </div>
         </div>
 
-        <ul class="todo-tags" role="list" data-testid="test-todo-tags">
-          <li class="todo-tag" data-testid="test-todo-tag-work">Work</li>
-          <li class="todo-tag" data-testid="test-todo-tag-urgent">Urgent</li>
-          <li class="todo-tag" data-testid="test-todo-tag-chemistry">Chemistry</li>
-        </ul>
+        <div class="todo-edit-form" data-testid="test-todo-edit-form" hidden>
+          <div class="form-group">
+            <label for="edit-title">Title</label>
+            <input
+              type="text"
+              id="edit-title"
+              class="form-input"
+              data-testid="test-todo-edit-title-input"
+              placeholder="Task title"
+            />
+          </div>
 
-        <div class="card-actions">
-          <button class="todo-edit-btn" data-testid="test-todo-edit-button" aria-label="Edit task">
-            Edit
-          </button>
-          <button
-            class="todo-delete-btn"
-            data-testid="test-todo-delete-button"
-            aria-label="Delete task"
-          >
-            Delete
-          </button>
+          <div class="form-group">
+            <label for="edit-description">Description</label>
+            <textarea
+              id="edit-description"
+              class="form-textarea"
+              data-testid="test-todo-edit-description-input"
+              placeholder="Task description"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="edit-priority">Priority</label>
+              <select
+                id="edit-priority"
+                class="form-select"
+                data-testid="test-todo-edit-priority-select"
+              >
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High" selected>High</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="edit-due-date">Due Date</label>
+              <input
+                type="date"
+                id="edit-due-date"
+                class="form-input"
+                data-testid="test-todo-edit-due-date-input"
+              />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button
+              class="btn-save"
+              data-testid="test-todo-save-button"
+              aria-label="Save task"
+            >
+              Save
+            </button>
+            <button
+              class="btn-cancel"
+              data-testid="test-todo-cancel-button"
+              aria-label="Cancel editing"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </article>
     </main>
